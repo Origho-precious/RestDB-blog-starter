@@ -1,22 +1,21 @@
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import Navbar from "./components/Navbar/Navbar";
+import Article from "./pages/article";
+import Home from "./pages/home";
+import Write from "./pages/write";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+	return (
+		<BrowserRouter>
+			<Navbar />
+			<Switch>
+				<Route exact path="/" component={Home} />
+				<Route exact path="/write/:id" component={Write} />
+				<Route exact path="/write" component={Write} />
+				<Route exact path="/article/:id" component={Article} />
+			</Switch>
+		</BrowserRouter>
+	);
+};
 
 export default App;
